@@ -1,0 +1,40 @@
+#!/bin/sh
+
+COLOR=${COLOR:-15}
+
+c() { tput setaf $COLOR; }
+d() { tput sgr0; }
+
+gitdir=http://www.github.com/dtch-/
+myblog=http://www.dtch.info/
+
+system() {
+    sed "/^$/d;s/\s*[\(\\]\+.*$//" /etc/issue
+}
+
+cpuinfo() {
+    sed -n "/model\ name/s/^.*:\ //p" /proc/cpuinfo | sed 1q
+}
+
+wmname() {
+    echo "swm"
+#    xprop -root WM_NAME | cut -d\" -f2
+}
+
+fontname() {
+    xrdb -query|sed "/urxvt\*font/s/^[^-]*-\*-\([^-]*\)-.*$/\1/p;d"
+}
+
+cat <<EOF
+
+$(c)SYSTEM    $(d)$(system)
+$(c)KERNEL    $(d)$(uname -r)
+$(c)HOSTNAME  $(d)$HOSTNAME
+$(c)WMNAME    $(d)$(wmname)
+$(c)TERMINAL  $(d)$TERM
+$(c)SHELL     $(d)$SHELL
+$(c)FONT      $(d)$(fontname)
+$(c)PROC      $(d)$(~/bin/cpu -p)
+$(c)MEMORY    $(d)$(~/bin/memory -u)
+
+EOF

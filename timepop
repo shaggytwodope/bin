@@ -1,0 +1,8 @@
+#! /bin/sh
+
+dat(){
+	echo -n  $(date "+%a/%b/%d %I:%M %p")
+}
+
+notify-send -t 5000 -a "INFO" "$(dat)"
+

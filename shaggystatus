@@ -1,0 +1,106 @@
+#! /bin/sh
+
+dat(){
+	echo -n  $(date "+%a/%b/%d %I:%M %p")
+}
+
+mus(){
+	echo -n  $(test -z "$(mpc current)" || mpc current -f "[[%title% - ]%artist%]"  )
+	#echo -n $(ps aux | grep -v "grep" | if grep -q "cmus"; then echo $(cmus-remote -Q | sed -n 's/tag title //p'); else echo "n/a"; fi)
+}
+
+vol(){
+    
+    #echo -n $(amixer get PCM | grep "Front Left:" | awk '{print $5}')
+    echo "`/bin/sh /home/shaggy/bin/pulsevolumecheck.sh`"
+}
+
+gmail(){
+    #echo -n $(python2 weather-cli/weathercli.py bicknell,in -u celsius --iconify)
+    #echo -n $(python2 weather-cli/weathercli.py bicknell,in -u celsius | grep "It's" | awk '{print $2,$4,$5,$6}')
+    echo "`/bin/sh /home/shaggy/bin/gmailmail.sh`"
+}
+
+teknik(){
+    #echo -n $(python2 weather-cli/weathercli.py bicknell,in -u celsius --iconify)
+    #echo -n $(python2 weather-cli/weathercli.py bicknell,in -u celsius | grep "It's" | awk '{print $2,$4,$5,$6}')
+    echo "`/bin/sh /home/shaggy/bin/teknikmail.sh`"
+}
+
+pac(){
+    echo "`cat /home/shaggy/.config/bspwm/pacstatus`"
+}
+
+
+aur(){
+    echo "`cat /home/shaggy/.config/bspwm/aurstatus`"
+}
+
+
+rss(){
+    echo "`cat /home/shaggy/.config/bspwm/rss`"
+}
+
+
+home(){
+    home="$(df -h|grep sda1|awk '{print $5}')"
+    echo "$home"
+}
+
+riddle(){
+    root="$(df -h|grep sdb2|awk '{print $5}')"
+    echo "$root"
+}
+
+
+
+# mem section
+memu(){
+    #memux="$(free -m | sed -n 's|^-.*:[ \t]*\([0-9]*\) .*|\1|gp')"
+    memu="$(free -t -m | grep "Total" | awk '{ print ""$3 ""}')"
+
+    echo "$memu"
+}
+memt(){
+    memt="$(free -m | sed -n 's|^M.*:[ \t]*\([0-9]*\) .*|\1|gp')"
+    echo "$memt"
+}
+# cpu section
+cpu(){
+    cpu="$(eval $(awk '/^cpu /{print "previdle=" $5 "; prevtotal=" $2+$3+$4+$5 }' /proc/stat); sleep 0.4;
+	      eval $(awk '/^cpu /{print "idle=" $5 "; total=" $2+$3+$4+$5 }' /proc/stat);
+	      intervaltotal=$((total-${prevtotal:-0}));
+	      echo "$((100*( (intervaltotal) - ($idle-${previdle:-0}) ) / (intervaltotal) ))")"
+          if (( $cpu >= 70 ));then
+              color="$red"
+          else
+              color="$grey"
+          fi
+
+    echo "$cpu%" 
+}
+
+
+
+netup(){
+    netup="$("$HOME/.config/wmfs/scripts/speed-wmfs.sh")" 
+    echo "${netup}"
+}
+
+
+
+pause(){
+    echo -n $(mpc | if grep -q "paused"; then echo -n "⮔"; else echo -n "⮕"; fi)
+}
+
+while :; do
+
+
+
+
+    printf "%s\n" "[MPD] $(pause) $(mus) [vol] $(vol) [pac] $(pac)[aur] $(aur) [net] $(netup) [cpu]$(cpu) [mem]$(memu)/$(memt) [home]$(home) [riddle] $(riddle) [gmail]$(gmail) [teknik]$(teknik) [rss]$(rss) [date] $(dat)"
+
+
+sleep 1
+done	
+

@@ -1,0 +1,109 @@
+#!/bin/bash
+
+function check {
+if (( $(pidof calcurse | wc -w) == 1 )); then 
+  echo -e "Calcurse is already Running... Killing"
+  kill $(pidof calcurse | awk '{print $1}')
+else
+  echo -e "Calcurse is Not Running... Safe to Continue"
+fi
+}
+
+function checkif {
+case "$(pidof calcurse | wc -w)" in
+
+0)  echo "Calcurse not open, Proceding:"
+    ;;
+2)  echo "Calcurse running, all OK"
+    ;;
+*)  echo "Instances of Calcurse running. Stopping..."
+    kill $(pidof calcurse | awk '{print $1}')
+    ;;
+esac
+}
+
+function loading {
+    char="|"
+    while :; do
+        case "$char" in
+            "|")
+                char="/"
+                ;;
+            "/")
+                char="-"
+                ;;
+            "-")
+                char="\\"
+                ;;
+            "\\")
+                char="|"
+                ;;
+        esac
+        sleep .2s
+        echo -en "\rLoading $char"
+    done
+}
+
+checkif 
+loading &
+pid=$!
+ 
+echo -e "\nDownloading Calendars"
+
+rm ~/.calcurse/apts &&   
+touch ~/.calcurse/apts &&
+
+wget https://www.google.com/calendar/ical/twodopeshaggy%40gmail.com/private-7ab416fe4894aa6ab293736a89268a6d/basic.ics -q -O ~/.calcurse/main.ics &&
+
+wget http://followshows.com/ical/agDBZ7tj -q -O ~/.calcurse/tv.ics &&
+
+wget http://animecalendar.net/user/ical/11986/469cc8a1f781cffe56dd993294ad83c8 -q -O ~/.calcurse/anime.ics &&
+
+wget https://www.google.com/calendar/ical/en.usa%23holiday%40group.v.calendar.google.com/public/basic.ics -q -O ~/.calcurse/usholiday.ics &&
+
+
+
+
+
+
+
+
+sleep 2 &&
+
+
+
+
+
+# do something
+
+echo -e "\nDownloading Complete Begin Importing"
+sleep 2s &&
+
+
+
+calcurse -i ~/.calcurse/main.ics &&
+calcurse -i ~/.calcurse/tv.ics &&
+calcurse -i ~/.calcurse/anime.ics &&
+calcurse -i ~/.calcurse/usholiday.ics &&
+
+
+echo -e "\nImporting Local Cal"
+
+mv ~/.calcurse/apts ~/.calcurse/aptstemp &&
+cat ~/.calcurse/myapts ~/.calcurse/aptstemp > ~/.calcurse/apts &&
+sleep 2s
+
+clear &&
+
+echo -e "\nComplete, opening calcurse..."
+
+clear &&
+
+sleep 1s
+ 
+kill -9 $pid
+wait $pid 2>/dev/null # Supress "Killed" message
+echo -en "\r\033[K" # Completely overwrite last line
+ 
+echo "Done."
+#calcurse

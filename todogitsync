@@ -1,0 +1,51 @@
+#!/bin/bash
+#save todo list to git  - 07-10-2010
+
+### create temp folder
+
+tmpfolder='tmptodo'
+if [ $# -ge 1 ]; then
+    tmpfolder=$1
+fi
+
+if [ -d "$tmpfolder" ]; then #check if folder exists
+    echo "Folder already exists. Exiting..."
+    exit 0
+fi
+
+echo "Creating temporary folder $tmpfolder..."
+mkdir -p $tmpfolder
+cd $tmpfolder
+
+
+### find calcurse folder
+
+folder='/home/jlc/.calcurse' #should be improved
+
+### pull from github
+
+echo "Pulling files from github..."
+git init
+git remote add origin git@github.com:XX/todo.git
+git pull origin master
+
+
+### copy apts and todo
+
+echo "Copying files..."
+cp $folder/{apts,todo} .
+
+
+### push to github
+echo "Pushing changes..."
+git add apts
+git add todo
+git commit -m "Automatic commit"
+git push origin master
+
+
+### undo tmp changes
+
+echo "Removing temporary folder..."
+cd - &>/dev/null
+rm -rf $tmpfolder

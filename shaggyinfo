@@ -1,0 +1,61 @@
+#! /bin/sh
+
+dat(){
+	echo -n  $(date "+%a/%b/%d %I:%M %p")
+}
+
+mus(){
+	echo -n  $(test -z "$(mpc current)" || mpc current -f "[[%title% - ]%artist%]"  )
+	#echo -n $(ps aux | grep -v "grep" | if grep -q "cmus"; then echo $(cmus-remote -Q | sed -n 's/tag title //p'); else echo "n/a"; fi)
+}
+
+vol(){
+    
+    #echo -n $(amixer get PCM | grep "Front Left:" | awk '{print $5}')
+    echo "`/bin/sh /home/shaggy/bin/pulsevolumecheck.sh`"
+}
+
+gmail(){
+    #echo -n $(python2 weather-cli/weathercli.py bicknell,in -u celsius --iconify)
+    #echo -n $(python2 weather-cli/weathercli.py bicknell,in -u celsius | grep "It's" | awk '{print $2,$4,$5,$6}')
+    echo "`/bin/sh /home/shaggy/bin/gmailmail.sh`"
+}
+
+teknik(){
+    #echo -n $(python2 weather-cli/weathercli.py bicknell,in -u celsius --iconify)
+    #echo -n $(python2 weather-cli/weathercli.py bicknell,in -u celsius | grep "It's" | awk '{print $2,$4,$5,$6}')
+    echo "`/bin/sh /home/shaggy/bin/teknikmail.sh`"
+}
+
+pac(){
+    echo "`checkupdates | wc -l`"
+}
+
+
+aur(){
+    echo "`cower -u | wc -l`"
+}
+
+rss(){
+  UNREAD=$(echo 'select count(*) from rss_item where unread = 1;' | sqlite3 ~/.newsbeuter/cache.db)
+  if [ $UNREAD -eq 0 ] ; then UNREAD="0";fi
+  echo $UNREAD
+}
+
+
+home(){
+    home="$(df -h|grep sda1|awk '{print $5}')"
+    echo "$home"
+}
+
+riddle(){
+    root="$(df -h|grep sdb2|awk '{print $5}')"
+    echo "$root"
+}
+
+
+
+    printf "%s\n" "[pac] $(pac)[aur] $(aur) [home]$(home) [riddle] $(riddle) [gmail]$(gmail) [teknik]$(teknik) [rss]$(rss) [date] $(dat)"
+#notify-send -t 5000 -a "INFO" "[pac] $(pac)[aur] $(aur) [home]$(home) [riddle] $(riddle) [gmail]$(gmail) [teknik]$(teknik) [rss]$(rss) [date] $(dat)"
+
+

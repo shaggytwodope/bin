@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+#
+# pbrisbin 2013 - open my remote chat session in a new terminal.
+#
+###
+urxvtc -title chat -n chat -e \
+  ssh -t pbrisbin.com "bash -ilc 'screen -R -D -S irc weechat'"

@@ -1,0 +1,4 @@
+#!/bin/bash
+UNREAD=$(echo 'select count(*) from rss_item where unread = 1;' | sqlite3 ~/.newsbeuter/cache.db)
+if [ $UNREAD -eq 0 ] ; then UNREAD="-";fi
+echo $UNREAD

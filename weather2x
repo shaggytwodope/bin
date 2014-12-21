@@ -1,0 +1,1 @@
+curl -s http://rss.accuweather.com/rss/liverss.asp\?metric\=${METRIC}\&locCode\=EGKK | perl -ne 'if (/Currently/) {chomp;/\<title\>Currently: (.*)?\<\/title\>/; print "$1"; }'

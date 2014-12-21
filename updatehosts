@@ -1,0 +1,49 @@
+#!/bin/bash
+function loading {
+    char="|"
+    while :; do
+        case "$char" in
+            "|")
+                char="/"
+                ;;
+            "/")
+                char="-"
+                ;;
+            "-")
+                char="\\"
+                ;;
+            "\\")
+                char="|"
+                ;;
+        esac
+        sleep .2s
+        echo -en "\rLoading $char"
+    done
+}
+
+
+loading &
+pid=$!
+
+echo -e "\nDownloading Hosts"
+
+rm ~/.hosts/hostsfile &&
+touch ~/.hosts/hostsfile &&
+
+wget http://www.malwaredomainlist.com/hostslist/hosts.txt -q -O ~/.hosts/1.host &&
+wget "http://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&mimetype=plaintext" -q -O ~/.hosts/5.host &&
+wget http://hosts-file.net/ad_servers.asp -q -O ~/.hosts/6.host &&
+
+
+sleep 2 &&
+
+# do something
+
+echo -e "\nDownloading Complete Begin merge..."
+sleep 2s &&
+cat ~/.hosts/1.host ~/.hosts/5.host ~/.hosts/6.host > ~/.hosts/hostsfile
+clear &&
+kill -9 $pid
+wait $pid 2>/dev/null # Supress "Killed" message
+echo -en "\r\033[K" # Completely overwrite last line
+echo "Done."

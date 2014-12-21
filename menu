@@ -1,0 +1,7 @@
+#!/bin/bash
+thingmenu -g 120x120 \
+    "play a game"       "steam" \
+    "pop a term"        "urxvt" \
+    "surf the web"      "dwb" \
+    "restart 2bwm"      "pkill 2bwm; pkill swm; 2bwm" \
+    "restart swm"       "pkill 2bwm; pkill swm; swm" 2> /dev/null

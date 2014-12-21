@@ -1,0 +1,5 @@
+!#/bin/bash
+#--entry-text "text..."
+input=$(zenity --entry --text "Read what later.")
+
+echo $input >> /riddlebox/Dropbox/Text/Notes/readlater

@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+#
+# pbrisbin 2013 - share a file by hosting it on pbrisbin dot com.
+#
+###
+[[ "$1" =~ -p|--prefix ]] && { prefix="$2/"; shift 2; }
+
+file="$(readlink -f "$1")"
+base="${file##*/}"
+link="http://files.pbrisbin.com/$prefix$base"
+
+scp "$file" "pbrisbin.com:/srv/http/files/$prefix$base" || exit $?
+
+[[ -n "$DISPLAY" ]] && printf "$link" | xclip
+
+printf "%s\n" "$link"
