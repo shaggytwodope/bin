@@ -2,11 +2,11 @@
 
 
 
-#count new gmail for every maildir
+#count teknik mail for every maildir
 maildirtek="$HOME/Maildir/teknik/INBOX/new/"
 teknik="$(find $maildirtek -type f | wc -l)"
 
-#count teknik mail for every maildir
+#count new gmail for every maildir
 maildirgmail="$HOME/Maildir/gmail/INBOX/new/"
 gmail="$(find $maildirgmail -type f | wc -l)"
 
