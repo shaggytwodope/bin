@@ -1,4 +1,9 @@
-#!/bin/bash
+#!/usr/bin/env bash
+# AUTHOR:   shaggy
+# FILE:     xkcd.sh
+# ROLE:     TODO (some explanation)
+# CREATED:  2014-12-21 18:17:01
+# MODIFIED: 2014-12-21 19:17:14
 
 
 

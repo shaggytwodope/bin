@@ -1,6 +1,9 @@
-#!/usr/bin/bash
-
-
+#!/usr/bin/env bash
+# AUTHOR:   shaggy
+# FILE:     mailnotify.sh
+# ROLE:     TODO (some explanation)
+# CREATED:  2014-12-21 18:17:0
+# MODIFIED: 2014-12-21 19:14:43
 
 #count teknik mail for every maildir
 maildirtek="$HOME/Maildir/teknik/INBOX/new/"
