@@ -3,7 +3,7 @@
 # FILE:     updatecalcurse
 # ROLE:     TODO (some explanation)
 # CREATED:  2014-12-21 18:17:01
-# MODIFIED: 2014-12-21 19:21:00
+# MODIFIED: 2014-12-22 14:55:56
 
 function check {
 if (( $(pidof calcurse | wc -w) == 1 )); then 
@@ -58,7 +58,6 @@ echo -e "\nDownloading Calendars"
 rm ~/.calcurse/apts &&   
 touch ~/.calcurse/apts &&
 
-wget https://www.google.com/calendar/ical/twodopeshaggy%40gmail.com/private-7ab416fe4894aa6ab293736a89268a6d/basic.ics -q -O ~/.calcurse/main.ics &&
 
 wget http://followshows.com/ical/agDBZ7tj -q -O ~/.calcurse/tv.ics &&
 
@@ -86,7 +85,6 @@ sleep 2s &&
 
 
 
-calcurse -i ~/.calcurse/main.ics &&
 calcurse -i ~/.calcurse/tv.ics &&
 calcurse -i ~/.calcurse/anime.ics &&
 calcurse -i ~/.calcurse/usholiday.ics &&
