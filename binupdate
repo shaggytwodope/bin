@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 # AUTHOR:   shaggy
-# FILE:     binupdate.sh
+# FILE:     binupdate
 # ROLE:     TODO (some explanation)
 # CREATED:  2014-12-21 18:17:01
-# MODIFIED: 2014-12-21 18:17:58
+# MODIFIED: 2014-12-21 19:21:55
 cd /home/shaggy/bin
 git add .
 git commit -am 'lazy update'
