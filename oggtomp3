@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# AUTHOR:   shaggy
+# FILE:     oggtomp3
+# ROLE:     TODO (some explanation)
+# CREATED:  2014-12-25 17:06:54
+# MODIFIED: 2014-12-25 17:07:40
+for f in *.ogg; do
+  title=$(vorbiscomment -l "$f" | grep -i 'title' | cut -d '=' -f 2)
+  album=$(vorbiscomment -l "$f" | grep -i 'album' | cut -d '=' -f 2)
+  artist=$(vorbiscomment -l "$f" | grep -i 'artist' | cut -d '=' -f 2)
+  ffmpeg -y -i "$f" -metadata title="$title" -metadata album="$album" -metadata artist="$artist" -ab 256k "${f%.ogg}.mp3"
+done
