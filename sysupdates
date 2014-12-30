@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# AUTHOR:   shaggy
+# FILE:     sysupdates
+# ROLE:     TODO (some explanation)
+# CREATED:  2014-12-29 19:22:19
+# MODIFIED: 2014-12-29 19:25:53
+
+
+pac="$(checkupdates | wc -l)"
+
+aur="$(cower -u | wc -l)"
+
+
+
+echo -e Pacman updates: $pac Aur updates: $aur 
