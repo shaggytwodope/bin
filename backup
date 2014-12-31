@@ -19,7 +19,7 @@ INCLUDE10="/home/shaggy/.cliweather /home/shaggy/.conkyrc /home/shaggy/.gitconfi
 INCLUDE11="/home/shaggy/.msmtprc /home/shaggy/.nanorc /home/shaggy/.netrc /home/shaggy/.offlineimaprc"
 INCLUDE12="/home/shaggy/.notmuch-config /home/shaggy/.Xdefaults /home/shaggy/.xinitrc /home/shaggy/.xprofile"
 INCLUDE13="/home/shaggy/.zshrc /home/shaggy/.zsh_history /home/shaggy/.screenrc"
-INCLUDE14="/home/shaggy/scripts /home/shaggy/private"
+INCLUDE14="/home/shaggy/scripts /home/shaggy/private /home/shaggy/.gnupg"
 
 BACKUPDIRARCH=/riddlebox/Dropbox/backups/archconfigs/
  
@@ -29,6 +29,7 @@ BACKUPDIRARCH=/riddlebox/Dropbox/backups/archconfigs/
 
 # Target file
 TARTARGET="/riddlebox/Dropbox/backups/backup-$DATE.tar.gz"
+ETCTARTARGET="/riddlebox/Dropbox/backups/ETC.tar.gz"
 
 TARTARGETMAIL="/riddlebox/Dropbox/backups/backupmail-$DATE.tar.gz"
 
@@ -37,7 +38,10 @@ TARTARGETMAIL="/riddlebox/Dropbox/backups/backupmail-$DATE.tar.gz"
 tar -czvf $TARTARGETMAIL /home/shaggy/Maildir
 
 tar -czvf $TARTARGET /home/shaggy/bin $INCLUDE1 $INCLUDE2 $INCLUDE3 $INCLUDE4 $INCLUDE5 $INCLUDE6 $INCLUDE7 $INCLUDE8 $INCLUDE9 $INCLUDE10 $INCLUDE11 $INCLUDE12 $INCLUDE13 $INCLUDE14 
-            
-nice -n 19 rsync --archive --force --delete --progress --compress /etc $BACKUPDIRARCH
+
+
+tar -czvf $ETCTARTARGET /etc
+
+#nice -n 19 rsync --archive --force --delete --progress --compress /etc $BACKUPDIRARCH
 
 

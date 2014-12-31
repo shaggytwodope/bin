@@ -1,5 +1,4 @@
 #!/bin/bash
-# Simple autosort for downloads
 find /riddlebox/Downloads/  -regextype posix-egrep -regex ".*\.(jpg|png|gif|jpeg|svg|tga|psd|jpe|bmp)$" -exec mv -n -t /riddlebox/miscimgs {} +
 find /riddlebox/Downloads/  -regextype posix-egrep -regex ".*\.(deb|run|bin|rpm|sh|py)$" -exec mv -n -t /riddlebox/misc {} +
 find /riddlebox/Downloads/  -regextype posix-egrep -regex ".*\.(diff|patch)$" -exec mv -n -t /riddlebox/misc {} +
