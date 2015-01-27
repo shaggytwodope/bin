@@ -28,7 +28,7 @@ BACKUPDIRARCH=/riddlebox/Dropbox/backups/archconfigs/
 
 
 # Target file
-TARTARGET="/riddlebox/Dropbox/backups/backup-$DATE.tar.gz"
+TARTARGET="/riddlebox/Dropbox/backups/backup.tar.gz"
 ETCTARTARGET="/riddlebox/Dropbox/backups/ETC.tar.gz"
 
 TARTARGETMAIL="/riddlebox/Dropbox/backups/backupmail-$DATE.tar.gz"

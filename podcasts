@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# AUTHOR:   shaggy
+# FILE:     podcasts
+# ROLE:     TODO (some explanation)
+# CREATED:  2015-01-08 21:47:45
+# MODIFIED: 2015-01-23 10:35:48
+podbeuter 
+rm ~/.newsbeuter/queue
+find /home/shaggy/Podcasts  -name "*.mp3" -exec mv -n -t /riddlebox/Music/Podcasts {} +
+find /home/shaggy/Podcasts  -name "*.ogg" -exec mv -n -t /riddlebox/Music/Podcasts {} +
+exit 0
+
+

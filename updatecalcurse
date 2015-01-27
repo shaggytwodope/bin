@@ -3,7 +3,7 @@
 # FILE:     updatecalcurse
 # ROLE:     TODO (some explanation)
 # CREATED:  2014-12-21 18:17:01
-# MODIFIED: 2014-12-22 14:55:56
+# MODIFIED: 2015-01-11 05:50:55
 
 function check {
 if (( $(pidof calcurse | wc -w) == 1 )); then 
@@ -65,11 +65,12 @@ wget http://animecalendar.net/user/ical/11986/469cc8a1f781cffe56dd993294ad83c8 -
 
 wget https://www.google.com/calendar/ical/en.usa%23holiday%40group.v.calendar.google.com/public/basic.ics -q -O ~/.calcurse/usholiday.ics &&
 
+wget https://www.google.com/calendar/ical/en.mexican%23holiday%40group.v.calendar.google.com/public/basic.ics -q -O ~/.calcurse/mexicanholiday.ics &&
 
 
+wget https://www.google.com/calendar/ical/en.japanese%23holiday%40group.v.calendar.google.com/public/basic.ics -q -O ~/.calcurse/japanholiday.ics &&
 
-
-
+#wget https://www.google.com/calendar/ical/ht3jlfaac5lfd6263ulfh4tql8%40group.calendar.google.com/public/basic.ics -q -o ~/.calcurse/moon.ics &&
 
 
 sleep 2 &&
@@ -88,7 +89,9 @@ sleep 2s &&
 calcurse -i ~/.calcurse/tv.ics &&
 calcurse -i ~/.calcurse/anime.ics &&
 calcurse -i ~/.calcurse/usholiday.ics &&
-
+calcurse -i ~/.calcurse/mexicanholiday.ics &&
+calcurse -i ~/.calcurse/japanholiday.ics &&
+#calcurse -i ~/.calcurse/moon.ics &&
 
 echo -e "\nImporting Local Cal"
 

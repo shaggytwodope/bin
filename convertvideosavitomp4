@@ -1,0 +1,12 @@
+#!/bin/sh
+
+mkdir convert
+
+for f in *.avi; do ffmpeg -i "$f" convert/"${f%.avi}.mp4"; done
+
+
+#find -name '*.avi' -exec ffmpeg -i {} {}.mp4 \;
+
+
+#find a safe way to delete old files?
+#find . -name "*.avi.mp4" -exec rename 's/\.avi.mp4$/\.mp4/i' {} \;
