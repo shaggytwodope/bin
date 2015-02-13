@@ -1,8 +1,8 @@
 #!/bin/sh
 
-mkdir convert
+#mkdir convert
 
-for f in *.avi; do ffmpeg -i "$f" convert/"${f%.avi}.mp4"; done
+for f in *.avi; do ffmpeg -i "$f" "${f%.avi}.mp4"; done
 
 
 #find -name '*.avi' -exec ffmpeg -i {} {}.mp4 \;
