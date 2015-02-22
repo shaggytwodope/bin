@@ -1,20 +1,20 @@
 #!/bin/bash
 
-STATUS=$(dropbox status)
+STATUS=$(dropbox-cli status)
 
 if [ "$STATUS" == "Dropbox isn't running!" ]; then
-    START=$(dropbox start)
+    START=$(dropbox-cli start)
 fi
 
 COUNT_DONE=1
 while true
 do
-    STATUS=$(dropbox status)
+    STATUS=$(dropbox-cli status)
     if [ "$STATUS" == "Up to date" ]; then
             COUNT_DONE=`expr $COUNT_DONE + 1`
             if [ $COUNT_DONE -gt 10 ]
             then
-                    STOP=$(dropbox stop)
+                    STOP=$(dropbox-cli stop)
                     break;
             fi
     fi
