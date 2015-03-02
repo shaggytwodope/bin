@@ -3,7 +3,7 @@
 # FILE:     updatecalcurse
 # ROLE:     TODO (some explanation)
 # CREATED:  2014-12-21 18:17:01
-# MODIFIED: 2015-01-11 05:50:55
+# MODIFIED: 2015-02-22 03:56:11
 
 function check {
 if (( $(pidof calcurse | wc -w) == 1 )); then 

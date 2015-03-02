@@ -3,7 +3,7 @@
 # FILE:     xkcd
 # ROLE:     TODO (some explanation)
 # CREATED:  2014-12-21 18:17:01
-# MODIFIED: 2014-12-21 19:22:32
+# MODIFIED: 2015-02-24 22:45:02
 
 
 
@@ -14,6 +14,9 @@ wget -qO- xkcd.com | grep -Po '(?<=")http://imgs[^/]+/comics/[^"]+\.\w{3}' > .xk
 text() {
 wget -qO- xkcd.com|tee |grep -Po '(?<=(\w{3})" title=").*(?=" alt)' > ~/.xkcd.text
 }
+cleantext() {
+    sed -i "s/&#39;/'/g" .xkcd.text
+}
 
 textshow() {
 cat ~/.xkcd.text
@@ -21,7 +24,7 @@ cat ~/.xkcd.text
 
 img
 text
-
+cleantext
 
 textshow && sleep 10s && imgt ~/.xkcd.img
 
