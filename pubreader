@@ -1,0 +1,84 @@
+#!/usr/bin/env bash
+
+read_epub()
+{
+einfo -q -p $1 | elinks -force-html -dump
+}
+
+read_html()
+{
+elinks -dump $1
+}
+
+read_txt()
+{
+cat $1
+}
+
+view_txt()
+{
+book="$(dialog --backtitle "Choose a text file" --fselect $HOME 0 0 --stdout)"
+dialog --backtitle "$book" --textbox $book 0 0
+}
+
+view_html()
+{
+book="$(dialog --backtitle "Choose an HTML file" --fselect $HOME 0 0 --stdout)"
+read_html $book > $HOME/.etemp.txt
+dialog --backtitle "$1" --textbox $HOME/.etemp.txt 0 0
+rm $HOME/.etemp.txt
+}
+
+show_metadata()
+{
+einfo $1
+}
+
+view_epub()
+{
+book="$(dialog --backtitle "Choose a book" --fselect $HOME/Books/ 0 0 --stdout)"
+read_epub $book > $HOME/.etemp.txt
+dialog --backtitle "$book" --textbox $HOME/.etemp.txt 0 0
+rm $HOME/.etemp.txt
+}
+
+do_help()
+{
+cat << EOF
+Usage:
+
+$0 -r {epub,html,txt} file | less
+
+Dump a file according to specified format to standard output for pagers like less.
+
+$0 -m file
+
+Show an ePub book's metadata.
+
+$0 -v {epub,html,txt}
+
+Select and read a file via curses dialogs.
+
+$0 -h
+
+Display this help page.
+EOF
+}
+
+if [ -e ~/.pubreader.rc ];then
+	source ~/.pubreader.rc
+else
+	cat > ~/.pubreader.rc << EOF
+#add new functions below
+EOF
+	source ~/.pubreader.rc
+fi
+
+while getopts "r:m:v:h" option;do
+	case "$option" in
+		r) read_${OPTARG} $3;;
+		m) show_metadata ${OPTARG};;
+		v) view_${OPTARG};;
+		h) do_help;;
+	esac
+done
