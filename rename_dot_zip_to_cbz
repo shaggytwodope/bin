@@ -1,0 +1,10 @@
+# Text File
+# AUTHOR:   shaggy
+# FILE:     rename_dot_zip_to_cbz
+# ROLE:     TODO (some explanation)
+# CREATED:  2015-04-04 08:27:34
+# MODIFIED: 2015-04-04 08:31:45
+#rename all *.txt to *.text
+for f in *.zip; do 
+    mv -- "$f" "${f%.zip}.cbz"
+done

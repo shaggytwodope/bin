@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# AUTHOR:   shaggy
+# FILE:     cbr2cbz.sh
+# ROLE:     TODO (some explanation)
+# CREATED:  2015-04-04 08:36:54
+# MODIFIED: 2015-04-04 08:37:00
+#bin/bash
+
+cbr=$1
+start_directory=`pwd`
+
+cbz=`basename "$cbr" .cbr`.cbz
+
+tempdir=`mktemp -d`
+cd "$tempdir"
+unrar e -inul "$start_directory/$cbr"
+zip -q "$start_directory/$cbz" *
+rm -rf "$tempdir"
