@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# AUTHOR:   shaggy
+# FILE:     txt2pdf.sh
+# ROLE:     TODO (some explanation)
+# CREATED:  2015-04-05 03:07:15
+# MODIFIED: 2015-04-05 03:07:16
+_tempfile=$(mktemp -u)
+abiword --to=ps --to-name="${_tempfile}" "${1}"
+ps2pdf "${_tempfile}" "${1}.pdf"
+rm "${_tempfile}"

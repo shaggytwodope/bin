@@ -3,7 +3,7 @@
 # FILE:     updatecalcurse
 # ROLE:     TODO (some explanation)
 # CREATED:  2014-12-21 18:17:01
-# MODIFIED: 2015-02-22 03:56:11
+# MODIFIED: 2015-04-05 21:50:23
 
 function check {
 if (( $(pidof calcurse | wc -w) == 1 )); then 
@@ -67,6 +67,7 @@ wget https://www.google.com/calendar/ical/en.usa%23holiday%40group.v.calendar.go
 
 wget https://www.google.com/calendar/ical/en.mexican%23holiday%40group.v.calendar.google.com/public/basic.ics -q -O ~/.calcurse/mexicanholiday.ics &&
 
+wget https://www.google.com/calendar/ical/pfutdblf1gi8jmfsvroh76f6jg%40group.calendar.google.com/public/basic.ics -q -O ~/.calcurse/firstshowingdotnet.ics &&
 
 wget https://www.google.com/calendar/ical/en.japanese%23holiday%40group.v.calendar.google.com/public/basic.ics -q -O ~/.calcurse/japanholiday.ics &&
 
@@ -90,6 +91,7 @@ calcurse -i ~/.calcurse/tv.ics &&
 calcurse -i ~/.calcurse/anime.ics &&
 calcurse -i ~/.calcurse/usholiday.ics &&
 calcurse -i ~/.calcurse/mexicanholiday.ics &&
+calcurse -i ~/.calcurse/firstshowingdotnet.ics &&
 calcurse -i ~/.calcurse/japanholiday.ics &&
 #calcurse -i ~/.calcurse/moon.ics &&
 
