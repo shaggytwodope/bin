@@ -6,3 +6,4 @@ dat(){
 
 notify-send -t 5000 -a "INFO" "$(dat)"
 
+talking-clock

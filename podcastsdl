@@ -3,7 +3,7 @@
 # FILE:     podcastsdl
 # ROLE:     TODO (some explanation)
 # CREATED:  2015-03-11 09:32:56
-# MODIFIED: 2015-03-17 14:10:07
+# MODIFIED: 2015-04-29 18:56:49
 
 
 
@@ -11,3 +11,6 @@ cd /riddlebox/Music/Podcasts
 gawk '{ print $1 }' /home/shaggy/.newsbeuter/queue > /home/shaggy/.newsbeuter/urls-down
 wget -nv -i /home/shaggy/.newsbeuter/urls-down
 cat /home/shaggy/.newsbeuter/blankfile > /home/shaggy/.newsbeuter/queue
+
+
+find /riddlebox/Music/Podcasts/  -name "*.mp4" -exec mv -n -t /riddlebox/Vidoes/ {} +

@@ -1,0 +1,5 @@
+cd /riddlebox/Vidoes/Anime\ New/
+find . -type d -print0 | while read -d '' -r dir; do
+    files=("$dir"/*)
+    printf "%5d files in %s\n" "${#files[@]}" "$dir"
+done

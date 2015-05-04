@@ -1,0 +1,20 @@
+#!/bin/bash
+
+find /riddlebox/Downloads/ -name "*Assassination\ Classroom*mkv" -exec mv "{}" /riddlebox/Vidoes/Anime\ New/Assassination\ Classroom/ \;
+find /riddlebox/Downloads/ -name "*Re-Kan*mkv" -exec mv "{}" /riddlebox/Vidoes/Anime\ New/Re-Kan/ \;
+find /riddlebox/Downloads/ -name "*RomCom\ SNAFU*mkv" -exec mv "{}" /riddlebox/Vidoes/Anime\ New/Yahari\ Ore\ no\ Seishun\ Love\ Comedy\ wa\ Machigatteiru.\ Zoku\ –\ My\ Teenage\ RomCom\ SNAFU\ TOO\!/ \;
+find /riddlebox/Downloads/ -name "*Yamada*mkv" -exec mv "{}" /riddlebox/Vidoes/Anime\ New/Yamada-kun\ and\ the\ Seven\ Witches/ \;
+find /riddlebox/Downloads/ -name "*Urawa*mkv" -exec mv "{}" /riddlebox/Vidoes/Anime\ New/Urawa\ no\ Usagi-chan/ \;
+find /riddlebox/Downloads/ -name "*Triage*mkv" -exec mv "{}" /riddlebox/Vidoes/Anime\ New/Triage\ X/ \;
+find /riddlebox/Downloads/ -name "*Nagato*mkv" -exec mv "{}" /riddlebox/Vidoes/Anime\ New/The\ Disappearance\ of\ Nagato\ Yuki-chan/ \;
+find /riddlebox/Downloads/ -name "*Seraph*mkv" -exec mv "{}" /riddlebox/Vidoes/Anime\ New/Seraph\ of\ the\ End/ \;
+find /riddlebox/Downloads/ -name "*Punch*mkv" -exec mv "{}" /riddlebox/Vidoes/Anime\ New/Punch\ Line/ \;
+find /riddlebox/Downloads/ -name "*Grisaia*mkv" -exec mv "{}" /riddlebox/Vidoes/Anime\ New/Grisaia/ \;
+find /riddlebox/Downloads/ -name "*Plastic*mkv" -exec mv "{}" /riddlebox/Vidoes/Anime\ New/Plastic\ Memories/ \;
+find /riddlebox/Downloads/ -name "*Monogatari*mkv" -exec mv "{}" /riddlebox/Vidoes/Anime\ New/Ore\ Monogatari\!\!/ \;
+find /riddlebox/Downloads/ -name "*Nisekoi*mkv" -exec mv "{}" /riddlebox/Vidoes/Anime\ New/Nisekoi_2/ \;
+find /riddlebox/Downloads/ -name "*BorN*mkv" -exec mv "{}" /riddlebox/Vidoes/Anime\ New/High\ Scholl\ DxD\ BorN/ \;
+find /riddlebox/Downloads/ -name "*Danna*mkv" -exec mv "{}" /riddlebox/Vidoes/Anime\ New/Danna\ Ga\ Nani\ wo\ Itteriru\ ka\ Wakaranai\ Ken\ S2/ \;
+find /riddlebox/Downloads/ -name "*DanMachi*mkv" -exec mv "{}" /riddlebox/Vidoes/Anime\ New/DanMachi\ \(Dungeon\ ni\ Deai\ wo\ Motomeru\ no\ wa\ Machigatteiru\ Darou\ ka\)/ \;
+
+
