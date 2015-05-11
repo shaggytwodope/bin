@@ -1,0 +1,1 @@
+cmd_/riddlebox/Downloads/kerntest/hello.ko := ld -r -m elf_x86_64 -T ./scripts/module-common.lds --build-id  -o /riddlebox/Downloads/kerntest/hello.ko /riddlebox/Downloads/kerntest/hello.o /riddlebox/Downloads/kerntest/hello.mod.o

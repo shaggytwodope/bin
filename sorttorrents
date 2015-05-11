@@ -1,0 +1,3 @@
+#!/bin/bash
+find /riddlebox/Downloads/  -name "*.torrent" -exec mv -n -t /riddlebox/rt/watch {} +
+exit 0

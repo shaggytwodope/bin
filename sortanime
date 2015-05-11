@@ -18,3 +18,23 @@ find /riddlebox/Downloads/ -name "*Danna*mkv" -exec mv "{}" /riddlebox/Vidoes/An
 find /riddlebox/Downloads/ -name "*DanMachi*mkv" -exec mv "{}" /riddlebox/Vidoes/Anime\ New/DanMachi\ \(Dungeon\ ni\ Deai\ wo\ Motomeru\ no\ wa\ Machigatteiru\ Darou\ ka\)/ \;
 
 
+find /riddlebox/rt/downloads/ -name "*Assassination\ Classroom*mkv" -exec mv "{}" /riddlebox/Vidoes/Anime\ New/Assassination\ Classroom/ \;
+find /riddlebox/rt/downloads/ -name "*Re-Kan*mkv" -exec mv "{}" /riddlebox/Vidoes/Anime\ New/Re-Kan/ \;
+find /riddlebox/rt/downloads/ -name "*RomCom\ SNAFU*mkv" -exec mv "{}" /riddlebox/Vidoes/Anime\ New/Yahari\ Ore\ no\ Seishun\ Love\ Comedy\ wa\ Machigatteiru.\ Zoku\ –\ My\ Teenage\ RomCom\ SNAFU\ TOO\!/ \;
+find /riddlebox/rt/downloads/ -name "*Yamada*mkv" -exec mv "{}" /riddlebox/Vidoes/Anime\ New/Yamada-kun\ and\ the\ Seven\ Witches/ \;
+find /riddlebox/rt/downloads/ -name "*Urawa*mkv" -exec mv "{}" /riddlebox/Vidoes/Anime\ New/Urawa\ no\ Usagi-chan/ \;
+find /riddlebox/rt/downloads/ -name "*Triage*mkv" -exec mv "{}" /riddlebox/Vidoes/Anime\ New/Triage\ X/ \;
+find /riddlebox/rt/downloads/ -name "*Nagato*mkv" -exec mv "{}" /riddlebox/Vidoes/Anime\ New/The\ Disappearance\ of\ Nagato\ Yuki-chan/ \;
+find /riddlebox/rt/downloads/ -name "*Seraph*mkv" -exec mv "{}" /riddlebox/Vidoes/Anime\ New/Seraph\ of\ the\ End/ \;
+find /riddlebox/rt/downloads/ -name "*Punch*mkv" -exec mv "{}" /riddlebox/Vidoes/Anime\ New/Punch\ Line/ \;
+find /riddlebox/rt/downloads/ -name "*Grisaia*mkv" -exec mv "{}" /riddlebox/Vidoes/Anime\ New/Grisaia/ \;
+find /riddlebox/rt/downloads/ -name "*Plastic*mkv" -exec mv "{}" /riddlebox/Vidoes/Anime\ New/Plastic\ Memories/ \;
+find /riddlebox/rt/downloads/ -name "*Monogatari*mkv" -exec mv "{}" /riddlebox/Vidoes/Anime\ New/Ore\ Monogatari\!\!/ \;
+find /riddlebox/rt/downloads/ -name "*Nisekoi*mkv" -exec mv "{}" /riddlebox/Vidoes/Anime\ New/Nisekoi_2/ \;
+find /riddlebox/rt/downloads/ -name "*BorN*mkv" -exec mv "{}" /riddlebox/Vidoes/Anime\ New/High\ Scholl\ DxD\ BorN/ \;
+find /riddlebox/rt/downloads/ -name "*Danna*mkv" -exec mv "{}" /riddlebox/Vidoes/Anime\ New/Danna\ Ga\ Nani\ wo\ Itteriru\ ka\ Wakaranai\ Ken\ S2/ \;
+find /riddlebox/rt/downloads/ -name "*DanMachi*mkv" -exec mv "{}" /riddlebox/Vidoes/Anime\ New/DanMachi\ \(Dungeon\ ni\ Deai\ wo\ Motomeru\ no\ wa\ Machigatteiru\ Darou\ ka\)/ \;
+
+
+
+
