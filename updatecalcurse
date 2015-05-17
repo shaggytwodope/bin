@@ -3,7 +3,7 @@
 # FILE:     updatecalcurse
 # ROLE:     TODO (some explanation)
 # CREATED:  2014-12-21 18:17:01
-# MODIFIED: 2015-04-28 01:52:58
+# MODIFIED: 2015-05-14 06:47:03
 
 function check {
 if (( $(pidof calcurse | wc -w) == 1 )); then 
@@ -75,6 +75,7 @@ wget https://www.google.com/calendar/ical/en.japanese%23holiday%40group.v.calend
 
 #wget http://otakucalendar.com/ical/releasedates-us.ics -q -O ~/.calcurse/otakucal.ics &&
 
+wget https://www.gamingonlinux.com/calendar_ical.php -q -O ~/.calcurse/gol.ics &&
 sleep 2 &&
 
 
@@ -89,6 +90,7 @@ sleep 2s &&
 
 
 calcurse -i ~/.calcurse/tv.ics &&
+calcurse -i ~/.calcurse/gol.ics &&
 calcurse -i ~/.calcurse/anime.ics &&
 calcurse -i ~/.calcurse/usholiday.ics &&
 calcurse -i ~/.calcurse/mexicanholiday.ics &&
