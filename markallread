@@ -1,0 +1,10 @@
+#!/bin/bash
+for i in `ls -1 ~/Maildir/*/*/new/*`
+do
+  mv $i `echo $i | sed -r "s/^(.*)\/new\/(.*)$/\1\/cur\/\2:2,S/"`
+done
+
+for i in `ls -1 ~/Maildir/*/*/cur/*:2, 2>/dev/null`
+do
+  mv $i `echo $i | sed -r "s/^(.*)$/\1S/"`
+done

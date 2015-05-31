@@ -2,7 +2,7 @@
 
 #mkdir convert
 
-for f in *.avi; do ffmpeg -i "$f" "${f%.avi}.mp4"; done
+for f in *.avi; do ffmpeg -i "$f" "${f%.avi}.mkv"; done
 
 
 #find -name '*.avi' -exec ffmpeg -i {} {}.mp4 \;
